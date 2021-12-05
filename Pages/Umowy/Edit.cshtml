@@ -1,0 +1,40 @@
+﻿@page
+@model WeddingHouseApp.Pages.Umowy.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Umowa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Umowa.UmowaId" />
+            <div class="form-group">
+                <label asp-for="Umowa.Data_podpisania" class="control-label"></label>
+                <input asp-for="Umowa.Data_podpisania" class="form-control" />
+                <span asp-validation-for="Umowa.Data_podpisania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Umowa.Id_pracownika" class="control-label"></label>
+                <input asp-for="Umowa.Id_pracownika" class="form-control" />
+                <span asp-validation-for="Umowa.Id_pracownika" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

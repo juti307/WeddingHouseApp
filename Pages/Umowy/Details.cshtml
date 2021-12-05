@@ -1,0 +1,31 @@
+﻿@page
+@model WeddingHouseApp.Pages.Umowy.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Umowa</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Umowa.Data_podpisania)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Umowa.Data_podpisania)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Umowa.Id_pracownika)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Umowa.Id_pracownika)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Umowa.UmowaId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

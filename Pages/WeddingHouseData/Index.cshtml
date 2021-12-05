@@ -1,0 +1,42 @@
+﻿@page
+@model WeddingHouseApp.Pages.WeddingHouseData.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Klient[0].Id_pary_mlodej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Klient[0].Osoba_personalia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Klient) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_pary_mlodej)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Osoba_personalia.Osoba_personaliaId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.KlientId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.KlientId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.KlientId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
