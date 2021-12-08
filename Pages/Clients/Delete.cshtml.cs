@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using WeddingHouseApp.Data;
 
-namespace WeddingHouseApp.Pages.WeddingHouseData
+namespace WeddingHouseApp.Pages.Clients
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
         }
 
         [BindProperty]
-        public Klient Klient { get; set; }
+        public Osoba_personalia Osoba_personalia { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,10 +29,9 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
                 return NotFound();
             }
 
-            Klient = await _context.Klient
-                .Include(k => k.Osoba_personalia).FirstOrDefaultAsync(m => m.KlientId == id);
+            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaId == id);
 
-            if (Klient == null)
+            if (Osoba_personalia == null)
             {
                 return NotFound();
             }
@@ -46,11 +45,11 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
                 return NotFound();
             }
 
-            Klient = await _context.Klient.FindAsync(id);
+            Osoba_personalia = await _context.Osoba_personalia.FindAsync(id);
 
-            if (Klient != null)
+            if (Osoba_personalia != null)
             {
-                _context.Klient.Remove(Klient);
+                _context.Osoba_personalia.Remove(Osoba_personalia);
                 await _context.SaveChangesAsync();
             }
 

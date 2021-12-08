@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
 using WeddingHouseApp.Data;
 
-namespace WeddingHouseApp.Pages.WeddingHouseData
+namespace WeddingHouseApp.Pages.Clients
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,13 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
 
         public IActionResult OnGet()
         {
-        ViewData["Osoba_personaliaForeignKey"] = new SelectList(_context.Osoba_personalia, "Osoba_personaliaId", "Osoba_personaliaId");
             return Page();
         }
 
         [BindProperty]
-        public Klient Klient { get; set; }
+        public Osoba_personalia Osoba_personalia { get; set; }
+        public Dokument Dokument { get; set; }
+
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -37,7 +38,9 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
                 return Page();
             }
 
-            _context.Klient.Add(Klient);
+            _context.Osoba_personalia.Add(Osoba_personalia);
+            _context.Dokument.Add(Dokument);
+            Dokument.Osoba_personaliaForeignKey = Osoba_personalia.Osoba_personaliaId;
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

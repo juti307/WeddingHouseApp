@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using WeddingHouseApp.Data;
 
-namespace WeddingHouseApp.Pages.WeddingHouseData
+namespace WeddingHouseApp.Pages.Clients
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
         }
 
         [BindProperty]
-        public Klient Klient { get; set; }
+        public Osoba_personalia Osoba_personalia { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,12 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
                 return NotFound();
             }
 
-            Klient = await _context.Klient
-                .Include(k => k.Osoba_personalia).FirstOrDefaultAsync(m => m.KlientId == id);
+            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaId == id);
 
-            if (Klient == null)
+            if (Osoba_personalia == null)
             {
                 return NotFound();
             }
-           ViewData["Osoba_personaliaForeignKey"] = new SelectList(_context.Osoba_personalia, "Osoba_personaliaId", "Osoba_personaliaId");
             return Page();
         }
 
@@ -50,7 +48,7 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
                 return Page();
             }
 
-            _context.Attach(Klient).State = EntityState.Modified;
+            _context.Attach(Osoba_personalia).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!KlientExists(Klient.KlientId))
+                if (!Osoba_personaliaExists(Osoba_personalia.Osoba_personaliaId))
                 {
                     return NotFound();
                 }
@@ -71,9 +69,9 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
             return RedirectToPage("./Index");
         }
 
-        private bool KlientExists(int id)
+        private bool Osoba_personaliaExists(int id)
         {
-            return _context.Klient.Any(e => e.KlientId == id);
+            return _context.Osoba_personalia.Any(e => e.Osoba_personaliaId == id);
         }
     }
 }

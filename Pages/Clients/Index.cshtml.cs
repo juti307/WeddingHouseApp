@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using WeddingHouseApp.Data;
 
-namespace WeddingHouseApp.Pages.WeddingHouseData
+namespace WeddingHouseApp.Pages.Clients
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,16 @@ namespace WeddingHouseApp.Pages.WeddingHouseData
             _context = context;
         }
 
-        public IList<Klient> Klient { get;set; }
+        public List<Osoba_personalia> Osoba_personalia { get;set; }
+        public List<Dokument> Dokument { get; set; }
 
         public async Task OnGetAsync()
         {
-            Klient = await _context.Klient
-                .Include(k => k.Osoba_personalia).ToListAsync();
+            Osoba_personalia = await _context.Osoba_personalia.ToListAsync();
+            Dokument = await _context.Dokument.ToListAsync();
+
+
+
         }
     }
 }

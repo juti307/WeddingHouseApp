@@ -21,5 +21,7 @@ namespace Models
     
         public virtual Osoba_personalia Osoba_personalia { get; set; }
         public virtual Adres_korespondencyjny Adres_korespondencyjny { get; set; }
+        //public int Adres_korespondencyjnyForeignKey { get; set; }
+        //public int Osoba_personaliaForeignKey { get; set; }
     }
 }
