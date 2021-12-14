@@ -1,0 +1,57 @@
+﻿@page
+@model WeddingHouseApp.Pages.Pary_mlode.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of Newlyweds</h1>
+
+<p>
+    <a asp-page="Create">Add a new couple</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                LP
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Para_mloda[0].Sposob_przedstawienia_oferty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Para_mloda[0].Data_przedstawienia_oferty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Para_mloda[0].Akceptacja_oferty)
+            </th>
+            <th>
+                <a asp-area="" asp-page="/Wesela/Index">Szczegóły wesela</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Para_mloda) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Para_mlodaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sposob_przedstawienia_oferty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_przedstawienia_oferty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Akceptacja_oferty)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Para_mlodaID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Para_mlodaID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Para_mlodaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

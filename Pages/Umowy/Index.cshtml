@@ -17,26 +17,27 @@
                 @Html.DisplayNameFor(model => model.Umowa[0].Data_podpisania)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Umowa[0].Id_pracownika)
+                @Html.DisplayNameFor(model => model.Umowa[0].PracownikID)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Umowa) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_podpisania)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_pracownika)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.UmowaId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UmowaId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UmowaId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Umowa)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_podpisania)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PracownikID)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.UmowaID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.UmowaID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.UmowaID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

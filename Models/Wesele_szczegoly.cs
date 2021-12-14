@@ -14,14 +14,16 @@ namespace Models
     
     public partial class Wesele_szczegoly
     {
-        public int Wesele_szczegolyId { get; set; }
+        public int Wesele_szczegolyID { get; set; }
+        public int Rozliczenia_szczegolyID { get; set; }
+
         public System.DateTime Data_wesela { get; set; }
         public System.TimeSpan Godzina_rozpoczecia { get; set; }
         public System.TimeSpan Godzina_zakonczenia { get; set; }
         public int Ile_osob { get; set; }
         public double Koszt_calkowity { get; set; }
-        public int Id_menu { get; set; }
-    
+        public int MenuID { get; set; }
+
         public virtual Rozliczenia_szczegoly Rozliczenia_szczegoly { get; set; }
         public virtual Menu Menu { get; set; }
     }

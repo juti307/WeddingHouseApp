@@ -1,0 +1,66 @@
+﻿@page
+@model WeddingHouseApp.Pages.Osoby.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Osoba_personalia[0].KontaktID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osoba_personalia[0].DokumentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osoba_personalia[0].PracownikID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osoba_personalia[0].Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osoba_personalia[0].Drugie_imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Osoba_personalia[0].Nazwisko)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Osoba_personalia) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KontaktID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DokumentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PracownikID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drugie_imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Osoba_personaliaID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Osoba_personaliaID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Osoba_personaliaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

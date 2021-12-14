@@ -30,7 +30,7 @@ namespace WeddingHouseApp.Pages.Clients
                 return NotFound();
             }
 
-            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaId == id);
+            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaID == id);
 
             if (Osoba_personalia == null)
             {
@@ -56,7 +56,7 @@ namespace WeddingHouseApp.Pages.Clients
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Osoba_personaliaExists(Osoba_personalia.Osoba_personaliaId))
+                if (!Osoba_personaliaExists(Osoba_personalia.Osoba_personaliaID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace WeddingHouseApp.Pages.Clients
 
         private bool Osoba_personaliaExists(int id)
         {
-            return _context.Osoba_personalia.Any(e => e.Osoba_personaliaId == id);
+            return _context.Osoba_personalia.Any(e => e.Osoba_personaliaID == id);
         }
     }
 }

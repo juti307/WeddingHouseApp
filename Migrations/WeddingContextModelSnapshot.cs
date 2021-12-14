@@ -15,13 +15,13 @@ namespace WeddingHouseApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.13")
+                .HasAnnotation("ProductVersion", "3.1.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Models.Adres_korespondencyjny", b =>
                 {
-                    b.Property<int>("Adres_korespondencyjnyId")
+                    b.Property<int>("Adres_korespondencyjnyID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -41,19 +41,19 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Ulica")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Adres_korespondencyjnyId");
+                    b.HasKey("Adres_korespondencyjnyID");
 
                     b.ToTable("Adres_korespondencyjny");
                 });
 
             modelBuilder.Entity("Models.Dokument", b =>
                 {
-                    b.Property<int>("DokumentId")
+                    b.Property<int>("DokumentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Osoba_personaliaForeignKey")
+                    b.Property<int>("Osoba_personaliaID")
                         .HasColumnType("int");
 
                     b.Property<string>("Rodzaj_dokumentu")
@@ -62,9 +62,9 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Seria_numer_dokumentu")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DokumentId");
+                    b.HasKey("DokumentID");
 
-                    b.HasIndex("Osoba_personaliaForeignKey")
+                    b.HasIndex("Osoba_personaliaID")
                         .IsUnique();
 
                     b.ToTable("Dokument");
@@ -72,33 +72,30 @@ namespace WeddingHouseApp.Migrations
 
             modelBuilder.Entity("Models.Klient", b =>
                 {
-                    b.Property<int>("KlientId")
+                    b.Property<int>("KlientID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Id_pary_mlodej")
+                    b.Property<int>("Osoba_personaliaID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Osoba_personaliaForeignKey")
+                    b.Property<int>("Para_mlodaID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Para_młodaPara_mlodaId")
-                        .HasColumnType("int");
+                    b.HasKey("KlientID");
 
-                    b.HasKey("KlientId");
-
-                    b.HasIndex("Osoba_personaliaForeignKey")
+                    b.HasIndex("Osoba_personaliaID")
                         .IsUnique();
 
-                    b.HasIndex("Para_młodaPara_mlodaId");
+                    b.HasIndex("Para_mlodaID");
 
                     b.ToTable("Klient");
                 });
 
             modelBuilder.Entity("Models.Kontakt", b =>
                 {
-                    b.Property<int>("KontaktId")
+                    b.Property<int>("KontaktID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -106,30 +103,27 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Adres_email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Adres_korespondencyjnyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id_osoby")
+                    b.Property<int>("Adres_korespondencyjnyID")
                         .HasColumnType("int");
 
                     b.Property<string>("Nr_telefonu")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Osoba_personaliaId")
+                    b.Property<int>("Osoba_personaliaID")
                         .HasColumnType("int");
 
-                    b.HasKey("KontaktId");
+                    b.HasKey("KontaktID");
 
-                    b.HasIndex("Adres_korespondencyjnyId");
+                    b.HasIndex("Adres_korespondencyjnyID");
 
-                    b.HasIndex("Osoba_personaliaId");
+                    b.HasIndex("Osoba_personaliaID");
 
                     b.ToTable("Kontakt");
                 });
 
             modelBuilder.Entity("Models.Menu", b =>
                 {
-                    b.Property<int>("MenuId")
+                    b.Property<int>("MenuID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -146,17 +140,20 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Stol_wiejski")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MenuId");
+                    b.HasKey("MenuID");
 
                     b.ToTable("Menu");
                 });
 
             modelBuilder.Entity("Models.Osoba_personalia", b =>
                 {
-                    b.Property<int>("Osoba_personaliaId")
+                    b.Property<int>("Osoba_personaliaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DokumentID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Drugie_imie")
                         .HasColumnType("nvarchar(max)");
@@ -164,17 +161,23 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Imie")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("KontaktID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nazwisko")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Osoba_personaliaId");
+                    b.Property<int>("PracownikID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Osoba_personaliaID");
 
                     b.ToTable("Osoba_personalia");
                 });
 
             modelBuilder.Entity("Models.Para_mloda", b =>
                 {
-                    b.Property<int>("Para_mlodaId")
+                    b.Property<int>("Para_mlodaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -188,14 +191,14 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Sposob_przedstawienia_oferty")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Para_mlodaId");
+                    b.HasKey("Para_mlodaID");
 
                     b.ToTable("Para_mloda");
                 });
 
             modelBuilder.Entity("Models.Pracownik", b =>
                 {
-                    b.Property<int>("PracownikId")
+                    b.Property<int>("PracownikID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -203,7 +206,7 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Data_zatrudnienia")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Osoba_personaliaForeignKey")
+                    b.Property<int>("Osoba_personaliaID")
                         .HasColumnType("int");
 
                     b.Property<double>("Pensja")
@@ -215,9 +218,9 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Stanowisko")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PracownikId");
+                    b.HasKey("PracownikID");
 
-                    b.HasIndex("Osoba_personaliaForeignKey")
+                    b.HasIndex("Osoba_personaliaID")
                         .IsUnique();
 
                     b.ToTable("Pracownik");
@@ -225,7 +228,7 @@ namespace WeddingHouseApp.Migrations
 
             modelBuilder.Entity("Models.Rozliczenia_szczegoly", b =>
                 {
-                    b.Property<int>("Rozliczenia_szczegolyId")
+                    b.Property<int>("Rozliczenia_szczegolyID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -242,17 +245,17 @@ namespace WeddingHouseApp.Migrations
                     b.Property<string>("Rodzaj_platnosci")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UmowaId")
+                    b.Property<int>("UmowaID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Wesele_szczegolyForeignKey")
+                    b.Property<int>("Wesele_szczegolyID")
                         .HasColumnType("int");
 
-                    b.HasKey("Rozliczenia_szczegolyId");
+                    b.HasKey("Rozliczenia_szczegolyID");
 
-                    b.HasIndex("UmowaId");
+                    b.HasIndex("UmowaID");
 
-                    b.HasIndex("Wesele_szczegolyForeignKey")
+                    b.HasIndex("Wesele_szczegolyID")
                         .IsUnique();
 
                     b.ToTable("Rozliczenia_szczegoly");
@@ -260,7 +263,7 @@ namespace WeddingHouseApp.Migrations
 
             modelBuilder.Entity("Models.Umowa", b =>
                 {
-                    b.Property<int>("UmowaId")
+                    b.Property<int>("UmowaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -268,22 +271,19 @@ namespace WeddingHouseApp.Migrations
                     b.Property<DateTime>("Data_podpisania")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_pracownika")
+                    b.Property<int>("PracownikID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PracownikId")
-                        .HasColumnType("int");
+                    b.HasKey("UmowaID");
 
-                    b.HasKey("UmowaId");
-
-                    b.HasIndex("PracownikId");
+                    b.HasIndex("PracownikID");
 
                     b.ToTable("Umowa");
                 });
 
             modelBuilder.Entity("Models.Wesele_szczegoly", b =>
                 {
-                    b.Property<int>("Wesele_szczegolyId")
+                    b.Property<int>("Wesele_szczegolyID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -297,21 +297,21 @@ namespace WeddingHouseApp.Migrations
                     b.Property<TimeSpan>("Godzina_zakonczenia")
                         .HasColumnType("time");
 
-                    b.Property<int>("Id_menu")
-                        .HasColumnType("int");
-
                     b.Property<int>("Ile_osob")
                         .HasColumnType("int");
 
                     b.Property<double>("Koszt_calkowity")
                         .HasColumnType("float");
 
-                    b.Property<int?>("MenuId")
+                    b.Property<int>("MenuID")
                         .HasColumnType("int");
 
-                    b.HasKey("Wesele_szczegolyId");
+                    b.Property<int>("Rozliczenia_szczegolyID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MenuId");
+                    b.HasKey("Wesele_szczegolyID");
+
+                    b.HasIndex("MenuID");
 
                     b.ToTable("Wesele_szczegoly");
                 });
@@ -320,7 +320,7 @@ namespace WeddingHouseApp.Migrations
                 {
                     b.HasOne("Models.Osoba_personalia", "Osoba_personalia")
                         .WithOne("Dokument")
-                        .HasForeignKey("Models.Dokument", "Osoba_personaliaForeignKey")
+                        .HasForeignKey("Models.Dokument", "Osoba_personaliaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -329,31 +329,37 @@ namespace WeddingHouseApp.Migrations
                 {
                     b.HasOne("Models.Osoba_personalia", "Osoba_personalia")
                         .WithOne("Klient")
-                        .HasForeignKey("Models.Klient", "Osoba_personaliaForeignKey")
+                        .HasForeignKey("Models.Klient", "Osoba_personaliaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Models.Para_mloda", "Para_młoda")
                         .WithMany("Klient")
-                        .HasForeignKey("Para_młodaPara_mlodaId");
+                        .HasForeignKey("Para_mlodaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Models.Kontakt", b =>
                 {
                     b.HasOne("Models.Adres_korespondencyjny", "Adres_korespondencyjny")
                         .WithMany("Kontakt")
-                        .HasForeignKey("Adres_korespondencyjnyId");
+                        .HasForeignKey("Adres_korespondencyjnyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Models.Osoba_personalia", "Osoba_personalia")
                         .WithMany("Kontakt")
-                        .HasForeignKey("Osoba_personaliaId");
+                        .HasForeignKey("Osoba_personaliaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Models.Pracownik", b =>
                 {
                     b.HasOne("Models.Osoba_personalia", "Osoba_personalia")
                         .WithOne("Pracownik")
-                        .HasForeignKey("Models.Pracownik", "Osoba_personaliaForeignKey")
+                        .HasForeignKey("Models.Pracownik", "Osoba_personaliaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -362,11 +368,13 @@ namespace WeddingHouseApp.Migrations
                 {
                     b.HasOne("Models.Umowa", "Umowa")
                         .WithMany("Rozliczenia_szczegoly")
-                        .HasForeignKey("UmowaId");
+                        .HasForeignKey("UmowaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Models.Wesele_szczegoly", "Wesele_szczegoly")
                         .WithOne("Rozliczenia_szczegoly")
-                        .HasForeignKey("Models.Rozliczenia_szczegoly", "Wesele_szczegolyForeignKey")
+                        .HasForeignKey("Models.Rozliczenia_szczegoly", "Wesele_szczegolyID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -375,14 +383,18 @@ namespace WeddingHouseApp.Migrations
                 {
                     b.HasOne("Models.Pracownik", "Pracownik")
                         .WithMany("Umowa")
-                        .HasForeignKey("PracownikId");
+                        .HasForeignKey("PracownikID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Models.Wesele_szczegoly", b =>
                 {
                     b.HasOne("Models.Menu", "Menu")
                         .WithMany("Wesele_szczegoly")
-                        .HasForeignKey("MenuId");
+                        .HasForeignKey("MenuID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

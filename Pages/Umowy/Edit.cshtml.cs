@@ -30,7 +30,7 @@ namespace WeddingHouseApp.Pages.Umowy
                 return NotFound();
             }
 
-            Umowa = await _context.Umowa.FirstOrDefaultAsync(m => m.UmowaId == id);
+            Umowa = await _context.Umowa.FirstOrDefaultAsync(m => m.UmowaID == id);
 
             if (Umowa == null)
             {
@@ -56,7 +56,7 @@ namespace WeddingHouseApp.Pages.Umowy
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UmowaExists(Umowa.UmowaId))
+                if (!UmowaExists(Umowa.UmowaID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace WeddingHouseApp.Pages.Umowy
 
         private bool UmowaExists(int id)
         {
-            return _context.Umowa.Any(e => e.UmowaId == id);
+            return _context.Umowa.Any(e => e.UmowaID == id);
         }
     }
 }

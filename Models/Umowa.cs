@@ -14,15 +14,11 @@ namespace Models
     
     public partial class Umowa
     {
-        public Umowa()
-        {
-            this.Rozliczenia_szczegoly = new HashSet<Rozliczenia_szczegoly>();
-        }
-    
-        public int UmowaId { get; set; }
+        public int UmowaID { get; set; }
+
         public System.DateTime Data_podpisania { get; set; }
-        public int Id_pracownika { get; set; }
-    
+        public int PracownikID { get; set; }
+
         public virtual Pracownik Pracownik { get; set; }
         public virtual ICollection<Rozliczenia_szczegoly> Rozliczenia_szczegoly { get; set; }
     }

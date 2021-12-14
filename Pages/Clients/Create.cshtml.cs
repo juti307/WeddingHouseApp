@@ -40,7 +40,7 @@ namespace WeddingHouseApp.Pages.Clients
 
             _context.Osoba_personalia.Add(Osoba_personalia);
             _context.Dokument.Add(Dokument);
-            Dokument.Osoba_personaliaForeignKey = Osoba_personalia.Osoba_personaliaId;
+            Dokument.Osoba_personaliaID = Osoba_personalia.Osoba_personaliaID;
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

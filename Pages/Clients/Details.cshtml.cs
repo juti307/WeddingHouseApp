@@ -32,9 +32,9 @@ namespace WeddingHouseApp.Pages.Clients
                 return NotFound();
             }
 
-            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaId == id);
-            Kontakt = await _context.Kontakt.FirstOrDefaultAsync(m => m.Id_osoby == id);
-            Dokument = await _context.Dokument.FirstOrDefaultAsync(m => m.Osoba_personaliaForeignKey == id);
+            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaID == id);
+            Kontakt = await _context.Kontakt.FirstOrDefaultAsync(m => m.Osoba_personaliaID == id);
+            Dokument = await _context.Dokument.FirstOrDefaultAsync(m => m.Osoba_personaliaID == id);
            // Adres_korespondencyjny = await _context.Adres_korespondencyjny.FirstOrDefaultAsync(m => m.Adres_korespondencyjnyId == Kontakt.Adres_korespondencyjnyId);
 
 

@@ -14,16 +14,15 @@ namespace Models
     
     public partial class Osoba_personalia
     {
-        public Osoba_personalia()
-        {
-            this.Kontakt = new HashSet<Kontakt>();
-        }
-    
-        public int Osoba_personaliaId { get; set; }
+        public int Osoba_personaliaID { get; set; }
+        public int KontaktID { get; set; }
+        public int DokumentID { get; set; }
+        public int PracownikID { get; set; }
+
         public string Imie { get; set; }
         public string Drugie_imie { get; set; }
         public string Nazwisko { get; set; }
-    
+
         public virtual Klient Klient { get; set; }
         public virtual Pracownik Pracownik { get; set; }
         public virtual Dokument Dokument { get; set; }

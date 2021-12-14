@@ -1,0 +1,52 @@
+﻿@page
+@model WeddingHouseApp.Pages.Adresy.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Adres_korespondencyjny</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres_korespondencyjny.Miasto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres_korespondencyjny.Miasto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres_korespondencyjny.Ulica)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres_korespondencyjny.Ulica)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres_korespondencyjny.Nr_domu_mieszkania)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres_korespondencyjny.Nr_domu_mieszkania)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres_korespondencyjny.Kod_pocztowy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres_korespondencyjny.Kod_pocztowy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Adres_korespondencyjny.Kraj)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Adres_korespondencyjny.Kraj)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Adres_korespondencyjny.Adres_korespondencyjnyID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

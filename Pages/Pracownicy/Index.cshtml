@@ -1,0 +1,60 @@
+﻿@page
+@model WeddingHouseApp.Pages.Pracownicy.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Stanowisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Data_zatrudnienia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Pensja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Prowizje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Osoba_personalia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pracownik) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stanowisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_zatrudnienia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pensja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prowizje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Osoba_personalia.Osoba_personaliaID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PracownikID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PracownikID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PracownikID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@page
+@model WeddingHouseApp.Pages.Rozliczenia.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Rozliczenia_szczegoly</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rozliczenia_szczegoly.Data_rozliczenia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rozliczenia_szczegoly.Data_rozliczenia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rozliczenia_szczegoly.Nr_paragonu_faktury)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rozliczenia_szczegoly.Nr_paragonu_faktury)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rozliczenia_szczegoly.Kwota_wplaty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rozliczenia_szczegoly.Kwota_wplaty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rozliczenia_szczegoly.Rodzaj_platnosci)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rozliczenia_szczegoly.Rodzaj_platnosci)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rozliczenia_szczegoly.Umowa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rozliczenia_szczegoly.Umowa.UmowaID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rozliczenia_szczegoly.Wesele_szczegoly)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rozliczenia_szczegoly.Wesele_szczegoly.Wesele_szczegolyID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Rozliczenia_szczegoly.Rozliczenia_szczegolyID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

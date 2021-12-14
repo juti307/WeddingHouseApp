@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                LP
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Osoba_personalia[0].Imie)
             </th>
             <th>
@@ -32,9 +35,13 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Osoba_personalia) {
-    
+        @foreach (var item in Model.Osoba_personalia)
+        {
+
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Klient[Model.Klient.FindIndex(a => a.Osoba_personaliaID == item.Osoba_personaliaID)].KlientID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Imie)
             </td>
@@ -45,17 +52,11 @@
                 @Html.DisplayFor(modelItem => item.Nazwisko)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => Model.Dokument[Model.Dokument.FindIndex(a => a.Osoba_personaliaForeignKey == item.Osoba_personaliaId)].Rodzaj_dokumentu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.Dokument[Model.Dokument.FindIndex(a => a.Osoba_personaliaForeignKey == item.Osoba_personaliaId)].Seria_numer_dokumentu)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Osoba_personaliaId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Osoba_personaliaId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Osoba_personaliaId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Osoba_personaliaID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Osoba_personaliaID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Osoba_personaliaID">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

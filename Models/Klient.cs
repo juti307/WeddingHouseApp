@@ -14,11 +14,11 @@ namespace Models
     
     public partial class Klient
     {
-        public int KlientId { get; set; }
-        public int Id_pary_mlodej { get; set; }
-    
+        public int KlientID { get; set; }
+        public int Osoba_personaliaID { get; set; }
+        public int Para_mlodaID { get; set; }
+
         public virtual Para_mloda Para_młoda { get; set; }
         public virtual Osoba_personalia Osoba_personalia { get; set; }
-        public int Osoba_personaliaForeignKey { get; set; }
     }
 }

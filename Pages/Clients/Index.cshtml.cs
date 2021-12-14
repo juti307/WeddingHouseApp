@@ -21,13 +21,13 @@ namespace WeddingHouseApp.Pages.Clients
 
         public List<Osoba_personalia> Osoba_personalia { get;set; }
         public List<Dokument> Dokument { get; set; }
+        public List<Klient> Klient { get; set; }
 
         public async Task OnGetAsync()
         {
             Osoba_personalia = await _context.Osoba_personalia.ToListAsync();
             Dokument = await _context.Dokument.ToListAsync();
-
-
+            Klient = await _context.Klient.ToListAsync();         
 
         }
     }

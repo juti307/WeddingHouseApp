@@ -1,0 +1,54 @@
+﻿@page
+@model WeddingHouseApp.Pages.Menus.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Alkohole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Stol_wiejski)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Koszt_za_osobe)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Menu) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alkohole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stol_wiejski)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Koszt_za_osobe)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MenuID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MenuID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MenuID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

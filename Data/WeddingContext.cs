@@ -28,22 +28,22 @@ namespace WeddingHouseApp.Data
             modelBuilder.Entity<Osoba_personalia>()
                 .HasOne(b => b.Dokument)
                 .WithOne(i => i.Osoba_personalia)
-                .HasForeignKey<Dokument>(b => b.Osoba_personaliaForeignKey);
+                .HasForeignKey<Dokument>(b => b.Osoba_personaliaID);
        
             modelBuilder.Entity<Osoba_personalia>()
                 .HasOne(b => b.Klient)
                 .WithOne(i => i.Osoba_personalia)
-                .HasForeignKey<Klient>(b => b.Osoba_personaliaForeignKey);
+                .HasForeignKey<Klient>(b => b.Osoba_personaliaID);
  
             modelBuilder.Entity<Osoba_personalia>()
                 .HasOne(b => b.Pracownik)
                 .WithOne(i => i.Osoba_personalia)
-                .HasForeignKey<Pracownik>(b => b.Osoba_personaliaForeignKey);
+                .HasForeignKey<Pracownik>(b => b.Osoba_personaliaID);
 
             modelBuilder.Entity<Wesele_szczegoly>()
               .HasOne(b => b.Rozliczenia_szczegoly)
               .WithOne(i => i.Wesele_szczegoly)
-              .HasForeignKey<Rozliczenia_szczegoly>(b => b.Wesele_szczegolyForeignKey);
+              .HasForeignKey<Rozliczenia_szczegoly>(b => b.Wesele_szczegolyID);
         }
     }
 }

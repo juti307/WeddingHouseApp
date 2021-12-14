@@ -1,0 +1,64 @@
+﻿@page
+@model WeddingHouseApp.Pages.Wesela.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Wesele_szczegoly</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Rozliczenia_szczegolyID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Rozliczenia_szczegolyID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Data_wesela)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Data_wesela)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Godzina_rozpoczecia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Godzina_rozpoczecia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Godzina_zakonczenia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Godzina_zakonczenia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Ile_osob)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Ile_osob)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Koszt_calkowity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Koszt_calkowity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wesele_szczegoly.Menu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wesele_szczegoly.Menu.MenuID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Wesele_szczegoly.Wesele_szczegolyID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

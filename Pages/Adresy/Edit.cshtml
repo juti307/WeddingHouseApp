@@ -1,0 +1,55 @@
+﻿@page
+@model WeddingHouseApp.Pages.Adresy.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Adres_korespondencyjny</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Adres_korespondencyjny.Adres_korespondencyjnyID" />
+            <div class="form-group">
+                <label asp-for="Adres_korespondencyjny.Miasto" class="control-label"></label>
+                <input asp-for="Adres_korespondencyjny.Miasto" class="form-control" />
+                <span asp-validation-for="Adres_korespondencyjny.Miasto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres_korespondencyjny.Ulica" class="control-label"></label>
+                <input asp-for="Adres_korespondencyjny.Ulica" class="form-control" />
+                <span asp-validation-for="Adres_korespondencyjny.Ulica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres_korespondencyjny.Nr_domu_mieszkania" class="control-label"></label>
+                <input asp-for="Adres_korespondencyjny.Nr_domu_mieszkania" class="form-control" />
+                <span asp-validation-for="Adres_korespondencyjny.Nr_domu_mieszkania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres_korespondencyjny.Kod_pocztowy" class="control-label"></label>
+                <input asp-for="Adres_korespondencyjny.Kod_pocztowy" class="form-control" />
+                <span asp-validation-for="Adres_korespondencyjny.Kod_pocztowy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres_korespondencyjny.Kraj" class="control-label"></label>
+                <input asp-for="Adres_korespondencyjny.Kraj" class="form-control" />
+                <span asp-validation-for="Adres_korespondencyjny.Kraj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

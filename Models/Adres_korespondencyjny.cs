@@ -14,18 +14,13 @@ namespace Models
     
     public partial class Adres_korespondencyjny
     {
-        public Adres_korespondencyjny()
-        {
-            this.Kontakt = new HashSet<Kontakt>();
-        }
-    
-        public int Adres_korespondencyjnyId { get; set; }
+        public int Adres_korespondencyjnyID { get; set; }
         public string Miasto { get; set; }
         public string Ulica { get; set; }
         public string Nr_domu_mieszkania { get; set; }
         public string Kod_pocztowy { get; set; }
         public string Kraj { get; set; }
-    
+
         public virtual ICollection<Kontakt> Kontakt { get; set; }
     }
 }

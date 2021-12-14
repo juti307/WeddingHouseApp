@@ -31,10 +31,11 @@
             @Html.DisplayFor(model => model.Osoba_personalia.Nazwisko)
         </dd>
     </dl>
-    
+
     <form method="post">
-        <input type="hidden" asp-for="Osoba_personalia.Osoba_personaliaId" />
+        <input type="hidden" asp-for="Osoba_personalia.Osoba_personaliaID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>
 </div>
+

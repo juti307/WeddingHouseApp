@@ -1,0 +1,72 @@
+﻿@page
+@model WeddingHouseApp.Pages.Wesela.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Rozliczenia_szczegolyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Data_wesela)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Godzina_rozpoczecia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Godzina_zakonczenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Ile_osob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Koszt_calkowity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wesele_szczegoly[0].Menu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Wesele_szczegoly) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rozliczenia_szczegolyID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_wesela)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Godzina_rozpoczecia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Godzina_zakonczenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ile_osob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Koszt_calkowity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menu.MenuID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Wesele_szczegolyID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Wesele_szczegolyID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Wesele_szczegolyID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

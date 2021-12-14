@@ -14,19 +14,15 @@ namespace Models
     
     public partial class Pracownik
     {
-        public Pracownik()
-        {
-            this.Umowa = new HashSet<Umowa>();
-        }
-    
-        public int PracownikId { get; set; }
+        public int PracownikID { get; set; }
+        public int Osoba_personaliaID { get; set; }
+
         public string Stanowisko { get; set; }
         public string Data_zatrudnienia { get; set; }
         public double Pensja { get; set; }
         public double Prowizje { get; set; }
-    
+
         public virtual Osoba_personalia Osoba_personalia { get; set; }
-        public int Osoba_personaliaForeignKey { get; set; }
         public virtual ICollection<Umowa> Umowa { get; set; }
     }
 }

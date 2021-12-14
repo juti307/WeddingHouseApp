@@ -29,7 +29,7 @@ namespace WeddingHouseApp.Pages.Umowy
                 return NotFound();
             }
 
-            Umowa = await _context.Umowa.FirstOrDefaultAsync(m => m.UmowaId == id);
+            Umowa = await _context.Umowa.FirstOrDefaultAsync(m => m.UmowaID == id);
 
             if (Umowa == null)
             {

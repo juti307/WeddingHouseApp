@@ -14,17 +14,13 @@ namespace Models
     
     public partial class Menu
     {
-        public Menu()
-        {
-            this.Wesele_szczegoly = new HashSet<Wesele_szczegoly>();
-        }
-    
-        public int MenuId { get; set; }
+        public int MenuID { get; set; }
+
         public string Nazwa { get; set; }
         public string Alkohole { get; set; }
         public string Stol_wiejski { get; set; }
         public double Koszt_za_osobe { get; set; }
-    
+
         public virtual ICollection<Wesele_szczegoly> Wesele_szczegoly { get; set; }
     }
 }

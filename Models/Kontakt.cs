@@ -14,14 +14,14 @@ namespace Models
     
     public partial class Kontakt
     {
-        public int KontaktId { get; set; }
+        public int KontaktID { get; set; }
         public string Adres_email { get; set; }
         public string Nr_telefonu { get; set; }
-        public int Id_osoby { get; set; }
-    
+        public int Osoba_personaliaID { get; set; }
+        public int Adres_korespondencyjnyID { get; set; }
+
+
         public virtual Osoba_personalia Osoba_personalia { get; set; }
         public virtual Adres_korespondencyjny Adres_korespondencyjny { get; set; }
-        //public int Adres_korespondencyjnyForeignKey { get; set; }
-        //public int Osoba_personaliaForeignKey { get; set; }
     }
 }

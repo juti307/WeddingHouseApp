@@ -1,0 +1,37 @@
+﻿@page
+@model WeddingHouseApp.Pages.Pary_mlode.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Para_mloda</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Para_mloda.Sposob_przedstawienia_oferty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Para_mloda.Sposob_przedstawienia_oferty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Para_mloda.Data_przedstawienia_oferty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Para_mloda.Data_przedstawienia_oferty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Para_mloda.Akceptacja_oferty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Para_mloda.Akceptacja_oferty)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Para_mloda.Para_mlodaID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

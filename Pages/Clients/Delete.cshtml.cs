@@ -29,7 +29,7 @@ namespace WeddingHouseApp.Pages.Clients
                 return NotFound();
             }
 
-            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaId == id);
+            Osoba_personalia = await _context.Osoba_personalia.FirstOrDefaultAsync(m => m.Osoba_personaliaID == id);
 
             if (Osoba_personalia == null)
             {

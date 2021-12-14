@@ -1,0 +1,60 @@
+﻿@page
+@model WeddingHouseApp.Pages.Rozliczenia.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Rozliczenia_szczegoly</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Rozliczenia_szczegoly.Rozliczenia_szczegolyID" />
+            <div class="form-group">
+                <label asp-for="Rozliczenia_szczegoly.UmowaID" class="control-label"></label>
+                <select asp-for="Rozliczenia_szczegoly.UmowaID" class="form-control" asp-items="ViewBag.UmowaID"></select>
+                <span asp-validation-for="Rozliczenia_szczegoly.UmowaID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rozliczenia_szczegoly.Wesele_szczegolyID" class="control-label"></label>
+                <select asp-for="Rozliczenia_szczegoly.Wesele_szczegolyID" class="form-control" asp-items="ViewBag.Wesele_szczegolyID"></select>
+                <span asp-validation-for="Rozliczenia_szczegoly.Wesele_szczegolyID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rozliczenia_szczegoly.Data_rozliczenia" class="control-label"></label>
+                <input asp-for="Rozliczenia_szczegoly.Data_rozliczenia" class="form-control" />
+                <span asp-validation-for="Rozliczenia_szczegoly.Data_rozliczenia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rozliczenia_szczegoly.Nr_paragonu_faktury" class="control-label"></label>
+                <input asp-for="Rozliczenia_szczegoly.Nr_paragonu_faktury" class="form-control" />
+                <span asp-validation-for="Rozliczenia_szczegoly.Nr_paragonu_faktury" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rozliczenia_szczegoly.Kwota_wplaty" class="control-label"></label>
+                <input asp-for="Rozliczenia_szczegoly.Kwota_wplaty" class="form-control" />
+                <span asp-validation-for="Rozliczenia_szczegoly.Kwota_wplaty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rozliczenia_szczegoly.Rodzaj_platnosci" class="control-label"></label>
+                <input asp-for="Rozliczenia_szczegoly.Rodzaj_platnosci" class="form-control" />
+                <span asp-validation-for="Rozliczenia_szczegoly.Rodzaj_platnosci" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

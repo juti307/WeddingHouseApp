@@ -1,0 +1,60 @@
+﻿@page
+@model WeddingHouseApp.Pages.Adresy.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres_korespondencyjny[0].Miasto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres_korespondencyjny[0].Ulica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres_korespondencyjny[0].Nr_domu_mieszkania)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres_korespondencyjny[0].Kod_pocztowy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres_korespondencyjny[0].Kraj)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Adres_korespondencyjny) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miasto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ulica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nr_domu_mieszkania)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kod_pocztowy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kraj)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Adres_korespondencyjnyID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Adres_korespondencyjnyID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Adres_korespondencyjnyID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
